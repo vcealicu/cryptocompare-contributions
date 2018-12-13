@@ -1,6 +1,6 @@
 const fetch = require("node-fetch");
 
-var url = "http://onramp.cryptocompare.com";
+var url = "https://contributions.cryptocompare.com";
 var tradeUrl = url + "/v1/tu";
 var orderbookUrl = url + "/v1/ob";
 

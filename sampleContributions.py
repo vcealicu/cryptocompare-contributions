@@ -1,6 +1,6 @@
 import requests
 
-url = "http://onramp.cryptocompare.com"
+url = "https://contributions.cryptocompare.com"
 tradeUrl = url + "/v1/tu"
 orderbookUrl = url + "/v1/ob"
 
