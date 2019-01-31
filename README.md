@@ -382,7 +382,7 @@ Should a position move from bid to ask (or visa versa) an explicit remove is req
         <td>dictionary of [key,value] pairs</td>
         <td>See below</td>
         <td><strong>Yes</strong></td>
-        <td rowspan=2>Either one pair is required for bids or asks. Both bids and asks can be supplied in the same message
+        <td rowspan=2>Either one pair is required for bids or asks. Both bids and asks can be supplied in the same message. If the update is a snapshot these fields are optional.
         See examples</td>
     </tr>
     <tr>
