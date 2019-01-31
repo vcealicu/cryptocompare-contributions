@@ -9,6 +9,7 @@
 |1.2|15/11/2018|Review changes, additional product endpoint added|
 |1.3|23/11/2018|TU and OB endpoints now multiple payloads per call. Can also request last trade data|
 |1.4|10/12/2018|Added snapshot option to OB endpoint|
+|1.5|31/01/2019|Orderbooks can now be cleared down via snapshot|
 
 ## Introduction
 Contributing Crypto market data to CryptoCompare is now supported via our Contributor API. Each contributor is required to have an APIKey before beginning contributions.
@@ -410,7 +411,7 @@ Should a position move from bid to ask (or visa versa) an explicit remove is req
 "bids":[["100.0","10"],["101.0","10"],["102.0","10"]],
 "asks":[["125.0","20"],["128.0","20],["130.0","20"]]
 ```
-Dictionaries of bid and ask values follow the following the example above, formatted as ["price","volume"]. An orderbook update JSON object must have at least one bid or ask position.
+Dictionaries of bid and ask values follow the following the example above, formatted as ["price","volume"]. An orderbook update JSON object must have at least one bid or ask position. One exception to this rule is when clearing down an order-book. In this case it is acceptable to send blank bids and asks (or omit them entirely) as long as "snapshot" is sent as "true".
 
 All values are absolute and a volume of 0 removes it from the order book.
 
