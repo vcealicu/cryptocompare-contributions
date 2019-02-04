@@ -14,9 +14,11 @@
 ## Introduction
 Contributing Crypto market data to CryptoCompare is now supported via our Contributor API. Each contributor is required to have an APIKey before beginning contributions.
 
-Both trade and orderbook updates are supported via REST endpoints documented below. Whilst orderbook data is optional, complete tick by tick trade data (with incrementing trade IDs) is required for a successful integration.
+Both trade and orderbook updates are supported via REST endpoints documented below. Whilst real-time incremental orderbook data is optional, periodic snapshots are required as well as complete tick by tick trade data (with unique trade IDs). 
 
-Orderbook data can be contributed either in a raw (i.e. when any change occurs) or conflated (combined changes within each second) formats.
+Incrementing trade IDs are preferred, however contributions of UUIDs are also supported provided each trade is uniquely identifiable. Orderbook data can be contributed either in a raw (i.e. when any change occurs) or conflated (combined changes within each second) formats.
+
+These constitute the minimum requirements for a successful integration. 
 
 Additionally, information about contributed assets can be provided by our Product endpoint.
 
@@ -34,7 +36,6 @@ A typical contributions session might look like the following:
          <td rowspan=2><strong>Start of contributions</strong> for coin pair or instrument</td>
          <td>
             <p>Initial snapshot of order-book should be sent</p>
-            <p><em>(optional)</em></p>
          </td>
          <td>
             <p>https://contributions.cryptocompare.com/v1/ob</p>
@@ -47,7 +48,8 @@ A typical contributions session might look like the following:
             "tsym":"USD",
             "timestamp":1539788400000,
             "bids":[["100.0","10"],["101.0","10"],["102.0","10"]], 
-            "asks":[["125.0","20"],["128.0","20"],["130.0","20"]]
+            "asks":[["125.0","20"],["128.0","20"],["130.0","20"]],
+            "snapshot":"true"
         }
     ]
 }</pre>
@@ -102,7 +104,6 @@ A typical contributions session might look like the following:
       <tr>
          <td>
             <p>Order-book update to be sent</p>
-            <p><em>(if order-book data contributed)</em></p>
          </td>
          <td>
             <p>https://contributions.cryptocompare.com/v1/ob</p>
@@ -124,7 +125,6 @@ A typical contributions session might look like the following:
          <td><strong>Order-book</strong> update(s) occur</td>
          <td>
             <p>Order-book update(s) to be sent</p>
-            <p><em>(if order-book data contributed)</em></p>
          </td>
          <td>
             <p>https://contributions.cryptocompare.com/v1/ob</p>
@@ -171,7 +171,6 @@ A typical contributions session might look like the following:
       <tr>
          <td>
             <p>Order-book update to be sent</p>
-            <p><em>(if order-book data contributed)</em></p>
          </td>
          <td>
             <p>https://contributions.cryptocompare.com/v1/ob</p>
