@@ -498,15 +498,15 @@ print(r.text)
     </tr>
     <tr>
         <td>fsym</td>
-        <td>dictionary of [key,value] pairs</td>
-        <td>["BTC","Bitcoin"]</td>
+        <td>string</td>
+        <td>BTC</td>
         <td><strong>Yes</strong></td>
-        <td rowspan=2>Either <em>fsym</em> or <em>tsym</em> must be populated with at least a single entry<br><br></td>
+        <td rowspan=2>fsym and tsym fields must be equal to or less than 20 characters</td>
     </tr>
     <tr>
         <td>tsym</td>
-        <td>dictionary of [key,value] pairs</td>
-        <td>["USD","US Dollar"]</td>
+        <td>string</td>
+        <td>USD</td>
         <td><strong>Yes</strong></td>
     </tr>
 </table>
