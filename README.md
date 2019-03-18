@@ -19,9 +19,27 @@ Both trade and orderbook updates are supported via REST endpoints documented bel
 
 Incrementing trade IDs are preferred, however contributions of UUIDs are also supported provided each trade is uniquely identifiable. Orderbook data can be contributed either in a raw (i.e. when any change occurs) or conflated (combined changes within each second) formats.
 
-These constitute the minimum requirements for a successful integration. 
-
 Additionally, information about contributed assets can be provided by our Product endpoint.
+
+### Requirements for integration
+
+Depending on the type of contributions, the following constitute the minimum requirements for a successful integration. It is for the contributor to decide whether they send trades with orderbook snapshots or orderbook snapshots followed by incremental updates. Simply providing regular snapshots may be easier to implement but will result in greater traffic between the contributing system and CryptoCompare infrastructure. As such, full trades and snapshots coupled with orderbook data is preferred but not a requirement for a successful integration.
+
+#### General requirements
+
+* Orderbook position values and trade prices priced in the FROM symbol (i.e. BTC for BTC-USD, see example below)
+* No duplication of trades or trade IDs (trade IDs can be sequential or UUID but each trade must be uniquely identified)
+* Trades must be sent in order both within a contributions message and between messages
+
+#### Trades and orderbook snapshot
+
+* Full tick by tick trade data (either per tick or combined in a single contribution at least every 15 seconds)
+* Orderbook snapshots at least every 60 seconds for each market
+
+#### Trades and full orderbook data
+
+* Full tick by tick trade data (either per tick or combined in a single contribution at least every 15 seconds)
+* Complete orderbook snapshots must be sent at least every 10 minutes with incremental updates being sent at least every 10 seconds (where there is an update to the orderbook) for each market
 
 ### Example contributions flow
 Contributed messages should have contiguous incrementing sequence (and trade IDs for trade updates) with a rate not greater than the defined rate limit.
