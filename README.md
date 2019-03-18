@@ -11,6 +11,7 @@
 |1.4|10/12/2018|Added snapshot option to OB endpoint|
 |1.5|31/01/2019|Orderbooks can now be cleared down via snapshot|
 |1.5a|04/02/2019|Clarified orderbook and trade ID requirements|
+|1.5b|18/03/2019|Further clarified requirements|
 
 ## Introduction
 Contributing Crypto market data to CryptoCompare is now supported via our Contributor API. Each contributor is required to have an APIKey before beginning contributions.
