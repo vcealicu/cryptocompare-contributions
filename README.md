@@ -28,7 +28,7 @@ Depending on the type of contributions, the following constitute the minimum req
 
 #### General requirements
 
-* Orderbook position values and trade prices priced in the FROM symbol (i.e. BTC for BTC-USD, see example below)
+* Orderbook position values and trade prices priced in the TO symbol (i.e. BTC for BTC-USD, see example below)
 * No duplication of trades or trade IDs (trade IDs can be sequential or UUID but each trade must be uniquely identified)
 * Trades must be sent in order both within a contributions message and between messages
 * All timestamps must be in UTC
