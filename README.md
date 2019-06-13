@@ -35,12 +35,12 @@ Depending on the type of contributions, the following constitute the minimum req
 
 #### Trades and orderbook snapshot
 
-* Full tick by tick trade data (either per tick or combined in a single contribution at least every 15 seconds)
+* Full tick by tick trade data (either per tick or combined in a single contribution, we require trades to be sent within 15 seconds of the actual transaction time)
 * Orderbook snapshots at least every 60 seconds for each market
 
 #### Trades and full orderbook data
 
-* Full tick by tick trade data (either per tick or combined in a single contribution at least every 15 seconds)
+* Full tick by tick trade data (either per tick or combined in a single contribution, we require trades to be sent within 15 seconds of the actual transaction time)
 * Complete orderbook snapshots must be sent at least every 10 minutes with incremental updates being sent at least every 10 seconds (where there is an update to the orderbook) for each market
 
 ### Example contributions flow
