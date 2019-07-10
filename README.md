@@ -334,6 +334,7 @@ r = requests.post("https://contributions.cryptocompare.com/v1/tu", json=jsonPayl
 print(r.status_code, r.reason)
 print(r.text)
 ```
+Note that the payload of a trade update is limited to 100,000 bytes.
 
 ## Order-book snapshot endpoint
 
@@ -454,6 +455,7 @@ r = requests.post("https://contributions.cryptocompare.com/v1/ob", json=jsonPayl
 print(r.status_code, r.reason)
 print(r.text)
 ```
+Note that the payload of an order-book update is limited to 1,000,000 bytes.
 
 ## Product endpoint
 
