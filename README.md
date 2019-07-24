@@ -26,6 +26,10 @@ Additionally, information about contributed assets can be provided by our Produc
 
 Depending on the type of contributions, the following constitute the minimum requirements for a successful integration. It is for the contributor to decide whether they send trades with orderbook snapshots or orderbook snapshots followed by incremental updates. Simply providing regular snapshots may be easier to implement but will result in greater traffic between the contributing system and CryptoCompare infrastructure. As such, full trades and snapshots coupled with orderbook data is preferred but not a requirement for a successful integration.
 
+#### Communication ####
+You can contact us by using the contact forms on https://www.cryptocompare.com our support staff will then connect you to the right teams. We use email as our primary method of communication, please be aware that we will only reach out to you from an email ending in @cryptocompare.com we do not use any other domain for sending emails.
+Our second channel of communication is our slack workspace. If you need an invite, do not hesitate to contact us, using the contact form on our website and our support team will start the process of getting you on our slack.
+
 #### General requirements
 
 * Orderbook position values and trade prices priced in the TO symbol (i.e. USD for BTC-USD, see example below)
