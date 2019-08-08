@@ -45,7 +45,7 @@ Our second channel of communication is our slack workspace. If you need an invit
 #### Trades and full orderbook data
 
 * Full tick by tick trade data (either per tick or combined in a single contribution, we require trades to be sent within 15 seconds of the actual transaction time)
-* Complete orderbook snapshots must be sent at least every 10 minutes with incremental updates being sent at least every 10 seconds (where there is an update to the orderbook) for each market
+* Orderbook snapshots must be sent at least every 10 minutes with incremental updates being sent at least every 10 seconds (where there is an update to the orderbook) for each market
 
 ### Example contributions flow
 Contributed messages should have contiguous incrementing sequence (and trade IDs for trade updates) with a rate not greater than the defined rate limit.
@@ -346,10 +346,10 @@ Order book information can be contributed to CryptoCompare via this endpoint.
 
 Order book integrations can either be via:
 
-1. a complete snapshot at a regular interval (i.e. every 60 seconds) or 
-2. by an initial snapshot followed by smaller incremental updates
+1. a snapshot at a regular interval (i.e. every 60 seconds) or 
+2. by less frequent snapshots followed by smaller incremental updates
 
-Whilst the first option is the simpler mechanism to implement it's not ideal both from a time lag and a bandwidth prospective. As such it's strongly encouraged contributors send regular complete images each hour followed by incremental updates as batched of level 2 data each 10 minutes.
+Whilst the first option is the simpler mechanism to implement it's not ideal both from a time lag and a bandwidth prospective. As such it's strongly encouraged contributors choose the second option.
 
 Every call to the order book snapshot endpoint can contain multiple update payloads. Each of these payloads can either be treated as a **snapshot** or as an **update**. Snapshots are indicated by the snapshot parameter being sent with 'true' and cause and previous order book information stored for the associated fsym/tsym instrument pair to be discarded and replaced with the contents of the bids and asks fields. When beginning contributions or sending a periodic snapshot, use this snapshot field to ensure no previous order book positions are still stored.
 
