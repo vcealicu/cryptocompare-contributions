@@ -119,7 +119,7 @@ A typical contributions session might look like the following:
             "price":"102.0",
             "volume":"1",
             "timestamp":1539788500000,
-            "tradeid":1000,
+            "tradeid":1001,
             "type":"buy"
         }
     ]
@@ -186,7 +186,7 @@ A typical contributions session might look like the following:
             "price":"125.0",
             "volume":"5",
             "timestamp":1539788700000,
-            "tradeid":1000,
+            "tradeid":1002,
             "type":"sell"
         }
     ]
@@ -346,10 +346,10 @@ Order book information can be contributed to CryptoCompare via this endpoint.
 
 Order book integrations can either be via:
 
-1. a complete snapshot at a regular interval (i.e. every 15 seconds) or 
+1. a complete snapshot at a regular interval (i.e. every 60 seconds) or 
 2. by an initial snapshot followed by smaller incremental updates
 
-Whilst the first option is the simpler mechanism to implement it's not ideal both from a time lag and a bandwidth prospective. As such it's strongly encouraged contributors send regular complete images each hour followed by incremental updates as batched of level 2 data each hour.
+Whilst the first option is the simpler mechanism to implement it's not ideal both from a time lag and a bandwidth prospective. As such it's strongly encouraged contributors send regular complete images each hour followed by incremental updates as batched of level 2 data each 10 minutes.
 
 Every call to the order book snapshot endpoint can contain multiple update payloads. Each of these payloads can either be treated as a **snapshot** or as an **update**. Snapshots are indicated by the snapshot parameter being sent with 'true' and cause and previous order book information stored for the associated fsym/tsym instrument pair to be discarded and replaced with the contents of the bids and asks fields. When beginning contributions or sending a periodic snapshot, use this snapshot field to ensure no previous order book positions are still stored.
 
