@@ -282,7 +282,7 @@ Each trade that occurs for every contributed pair should be contributed via the 
         <td><strong>Yes</strong></td>
         <td>Must be a valid decimal number encoded as an ASCII string
         Total length must be less than must be equal to or less than 20 characters.<br/><br/>
-        Must be expressed in the <strong>FROM</strong> symbol units.</td>
+        Must be expressed in the <strong>TO</strong> symbol units.</td>
     </tr>
     <tr>
         <td>volume</td>
@@ -410,8 +410,7 @@ Should a position move from bid to ask (or visa versa) an explicit remove is req
         <td>See below</td>
         <td><strong>Yes</strong></td>
         <td rowspan=2>Either one pair is required for bids or asks. Both bids and asks can be supplied in the same message. If the update is a snapshot these fields are optional.<br/><br/>
-        Values must be expressed in the FROM symbol units.
-        See examples</td>
+        Price values must be expressed in the TO symbol units and volume values must be expressed in the FROM symbol units. See examples</td>
     </tr>
     <tr>
         <td>asks</td>
